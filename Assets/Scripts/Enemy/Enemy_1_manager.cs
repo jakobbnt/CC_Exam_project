@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_1_manager : MonoBehaviour {
-    // Ting til liv
+    //Fields til liv
     int enemeyHealth = 30;
     float pushBack = 10.0f;
 
-    // ting til movment
+    //Fields til movment
     Rigidbody2D enemyRigid;
     float accuracy = 1.0f;
     public float speed;
@@ -18,7 +18,7 @@ public class Enemy_1_manager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         enemyRigid = this.GetComponent<Rigidbody2D>();
-        goal = GameObject.FindGameObjectWithTag("player").GetComponent<Rigidbody2D>().transform;
+        goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().transform;
     }
 	
 	// Update is called once per frame

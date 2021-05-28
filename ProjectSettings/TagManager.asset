@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - FirePoint
+  - Border
+  - Enemy
   layers:
   - Default
   - TransparentFX
