@@ -13,6 +13,7 @@ public class bullet_fire : MonoBehaviour {
         { 
             GetComponent<Rigidbody2D>().AddForce(this.transform.up * bullet_force);
             print("hej");
+            print("Diller");
 
         }
         // får skudet til at forsvinde efter det rammer "Border"
