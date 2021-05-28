@@ -20,7 +20,7 @@ public class Enemey_spawner : MonoBehaviour {
 
     float timer = 0.0f;
     int timerInt;
-    int spawnarray = -1;
+    int spawnLocationInt = -1;
     bool playerReady;
     bool spawnPause;
 
@@ -36,7 +36,7 @@ public class Enemey_spawner : MonoBehaviour {
         spawner();
         timer += Time.deltaTime;
         timerInt = Mathf.RoundToInt(timer);
-        print(timerInt);
+        //print(timerInt);
     }
 
     //Funktion til at vise spiilleren er klar 
@@ -59,50 +59,18 @@ public class Enemey_spawner : MonoBehaviour {
                 case 0:
                     if(spawnPause == false)
                     {
-                        spawnarray = Random.Range(1, 4);
+                        spawnLocationInt = Random.Range(1, 4);
                         StartCoroutine(spawnPauser());
-                        switch (spawnarray)
-                        {
-                            case 1:
-                                Instantiate(enemeyPrefab, spawnPoint_1.position, Quaternion.identity);
-                                break;
-                            case 2:
-                                Instantiate(enemeyPrefab, spawnPoint_2.position, Quaternion.identity);
-                                break;
-                            case 3:
-                                Instantiate(enemeyPrefab, spawnPoint_3.position, Quaternion.identity);
-                                break;
-                            case 4:
-                                Instantiate(enemeyPrefab, spawnPoint_4.position, Quaternion.identity);
-                                break;
-
-                        }
-                        
+                        SetSpawnLocation(spawnLocationInt);
                     }
                     break;
 
                 case 5:
                     if (spawnPause == false)
                     {
-                        spawnarray = Random.Range(1, 4);
+                        spawnLocationInt = Random.Range(1, 4);
                         StartCoroutine(spawnPauser());
-                        switch (spawnarray)
-                        {
-                            case 1:
-                                Instantiate(enemeyPrefab, spawnPoint_1.position, Quaternion.identity);
-                                break;
-                            case 2:
-                                Instantiate(enemeyPrefab, spawnPoint_2.position, Quaternion.identity);
-                                break;
-                            case 3:
-                                Instantiate(enemeyPrefab, spawnPoint_3.position, Quaternion.identity);
-                                break;
-                            case 4:
-                                Instantiate(enemeyPrefab, spawnPoint_4.position, Quaternion.identity);
-                                break;
-
-                        }
-
+                        SetSpawnLocation(spawnLocationInt);
                     }
                     break;
 
@@ -110,25 +78,9 @@ public class Enemey_spawner : MonoBehaviour {
                 case 10:
                     if (spawnPause == false)
                     {
-                        spawnarray = Random.Range(1, 4);
+                        spawnLocationInt = Random.Range(1, 4);
                         StartCoroutine(spawnPauser());
-                        switch (spawnarray)
-                        {
-                            case 1:
-                                Instantiate(enemeyPrefab, spawnPoint_1.position, Quaternion.identity);
-                                break;
-                            case 2:
-                                Instantiate(enemeyPrefab, spawnPoint_2.position, Quaternion.identity);
-                                break;
-                            case 3:
-                                Instantiate(enemeyPrefab, spawnPoint_3.position, Quaternion.identity);
-                                break;
-                            case 4:
-                                Instantiate(enemeyPrefab, spawnPoint_4.position, Quaternion.identity);
-                                break;
-
-                        }
-
+                        SetSpawnLocation(spawnLocationInt);
                     }
                     break;
 
@@ -136,24 +88,9 @@ public class Enemey_spawner : MonoBehaviour {
                 case 15:
                     if (spawnPause == false)
                     {
-                        spawnarray = Random.Range(1, 4);
+                        spawnLocationInt = Random.Range(1, 4);
                         StartCoroutine(spawnPauser());
-                        switch (spawnarray)
-                        {
-                            case 1:
-                                Instantiate(enemeyPrefab, spawnPoint_1.position, Quaternion.identity);
-                                break;
-                            case 2:
-                                Instantiate(enemeyPrefab, spawnPoint_2.position, Quaternion.identity);
-                                break;
-                            case 3:
-                                Instantiate(enemeyPrefab, spawnPoint_3.position, Quaternion.identity);
-                                break;
-                            case 4:
-                                Instantiate(enemeyPrefab, spawnPoint_4.position, Quaternion.identity);
-                                break;
-
-                        }
+                        SetSpawnLocation(spawnLocationInt);
 
                     }
                     break;
@@ -161,6 +98,28 @@ public class Enemey_spawner : MonoBehaviour {
         }
     }
 
+
+    //Ud fra en tilfældig int spawner den en "enemy" på en af 4 locations
+    void SetSpawnLocation(int spawnLocationInt)
+    {
+        print(spawnLocationInt);
+        switch (spawnLocationInt)
+        {
+            case 1:
+                Instantiate(enemeyPrefab, new Vector3(spawnPoint_1.position.x, spawnPoint_1.position.y, 0), Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(enemeyPrefab, new Vector3(spawnPoint_2.position.x, spawnPoint_2.position.y, 0), Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(enemeyPrefab, new Vector3(spawnPoint_3.position.x, spawnPoint_3.position.y, 0), Quaternion.identity);
+                break;
+            case 4:
+                Instantiate(enemeyPrefab, new Vector3(spawnPoint_4.position.x, spawnPoint_4.position.y, 0), Quaternion.identity);
+                break;
+
+        }
+    }
 
 
     IEnumerator spawnPauser()

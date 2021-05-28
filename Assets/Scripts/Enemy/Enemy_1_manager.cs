@@ -10,9 +10,11 @@ public class Enemy_1_manager : MonoBehaviour {
     //Fields til movment
     Rigidbody2D enemyRigid;
     float accuracy = 1.0f;
-    public float speed;
+    [SerializeField]
+    float speed;
     Transform goal;
     Vector2 direction;
+    //Transform EnemyTransform;
 
 
     // Use this for initialization
@@ -24,7 +26,7 @@ public class Enemy_1_manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         death();
-        print(enemeyHealth);
+        //print(enemeyHealth);
         toPlayer();
         
     }
