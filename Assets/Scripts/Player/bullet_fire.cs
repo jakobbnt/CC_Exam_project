@@ -11,8 +11,7 @@ public class bullet_fire : MonoBehaviour {
         // får skudet til at flyve frem
         if (target.gameObject.tag == "FirePoint") 
         { 
-            GetComponent<Rigidbody2D>().AddForce(this.transform.up * bullet_force);
-            print("hej");         
+            GetComponent<Rigidbody2D>().AddForce(this.transform.up * bullet_force);         
         }
         // får skudet til at forsvinde efter det rammer "Border"
         if (target.gameObject.tag == "Border" || target.gameObject.tag == "Enemy") Destroy(gameObject);

@@ -26,7 +26,6 @@ public class Enemey_spawner : MonoBehaviour {
         if (playerReady == true) spawner();
         timer += Time.deltaTime;
         timerInt = Mathf.RoundToInt(timer);
-        print(spawnPause);
     }
 
     //Funktion til at vise spiilleren er klar 

@@ -15,10 +15,8 @@ public class bullet_Spawner : MonoBehaviour {
     void Update() {
 
         bool shoot = Input.GetButtonDown("Fire1");
-
         if (shoot){
             Instantiate(bullet, bullet_Spawn.position, bullet_Spawn.rotation);
-            print("godadag");
         } 
         
 	}

@@ -27,15 +27,15 @@ public class playerManager : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy") playerHealth = playerHealth - 10;
+        //if (collision.gameObject.tag == "Enemy") playerHealth = playerHealth - 10;
        //healthSlider.value = playerHealth;
     }
 
  
 
-    void damageTaken()
+    public void damageTaken(int damage)
     {
-        
+        playerHealth -= damage;
     }
 
     void death()
