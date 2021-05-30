@@ -3,18 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemey_spawner : MonoBehaviour {
-
-
-
-
-    /*[SerializeField]
-    Transform spawnPoint_1;
-    [SerializeField]
-    Transform spawnPoint_2;
-    [SerializeField]
-    Transform spawnPoint_3;
-    [SerializeField]
-    Transform spawnPoint_4;*/
     [SerializeField]
     List<Transform> SpawnPoints = new List<Transform>();
     [SerializeField]
@@ -23,7 +11,7 @@ public class Enemey_spawner : MonoBehaviour {
     float timer = 0.0f;
     int timerInt;
     int spawnLocationInt = -1;
-    bool playerReady;
+    bool playerReady = false;
     bool spawnPause;
 
     // Use this for initialization
@@ -35,10 +23,10 @@ public class Enemey_spawner : MonoBehaviour {
 	void Update () {
 
         gameStarter();
-        spawner();
+        if (playerReady == true) spawner();
         timer += Time.deltaTime;
         timerInt = Mathf.RoundToInt(timer);
-        //print(timerInt);
+        print(spawnPause);
     }
 
     //Funktion til at vise spiilleren er klar 
@@ -53,58 +41,54 @@ public class Enemey_spawner : MonoBehaviour {
     }
 
     void spawner()
-    {
-        if(playerReady == true)
+    {   
+        switch (timerInt)
         {
-            switch (timerInt)
-            {
-                case 0:
-                    if(spawnPause == false)
-                    {
-                        spawnLocationInt = Random.Range(1, 4);
-                        StartCoroutine(spawnPauser());
-                        SetSpawnLocation(spawnLocationInt);
-                    }
-                    break;
+            case 0:
+                if(spawnPause == false)
+                {
+                    spawnLocationInt = Random.Range(1, 4);
+                    SpawnAt(spawnLocationInt);
+                    StartCoroutine(spawnPauser());  
+                }
+                break;
 
-                case 5:
-                    if (spawnPause == false)
-                    {
-                        spawnLocationInt = Random.Range(1, 4);
-                        StartCoroutine(spawnPauser());
-                        SetSpawnLocation(spawnLocationInt);
-                    }
-                    break;
+            case 5:
+                if (spawnPause == false)
+                {
+                    spawnLocationInt = Random.Range(1, 4);
+                    StartCoroutine(spawnPauser());
+                    SpawnAt(spawnLocationInt);
+                }
+                break;
 
+            case 10:
+                if (spawnPause == false)
+                {
+                    spawnLocationInt = Random.Range(1, 4);
+                    StartCoroutine(spawnPauser());
+                    SpawnAt(spawnLocationInt);
+                }
+                break;
 
-                case 10:
-                    if (spawnPause == false)
-                    {
-                        spawnLocationInt = Random.Range(1, 4);
-                        StartCoroutine(spawnPauser());
-                        SetSpawnLocation(spawnLocationInt);
-                    }
-                    break;
+            case 15:
+                if (spawnPause == false)
+                {
+                    spawnLocationInt = Random.Range(1, 4);
+                    StartCoroutine(spawnPauser());
+                    SpawnAt(spawnLocationInt);
 
-
-                case 15:
-                    if (spawnPause == false)
-                    {
-                        spawnLocationInt = Random.Range(1, 4);
-                        StartCoroutine(spawnPauser());
-                        SetSpawnLocation(spawnLocationInt);
-
-                    }
-                    break;
-            }
+                }
+                break;
         }
+        
     }
 
 
     //Ud fra en tilfældig int spawner den en "enemy" på en af 4 locations
-    void SetSpawnLocation(int spawnLocationInt)
+    void SpawnAt(int spawnLocationInt)
     {
-        print(spawnLocationInt);
+        //print(spawnLocationInt);
         switch (spawnLocationInt)
         {
             case 1:
