@@ -7,14 +7,16 @@ public class Enemey_spawner : MonoBehaviour {
 
 
 
-    [SerializeField]
+    /*[SerializeField]
     Transform spawnPoint_1;
     [SerializeField]
     Transform spawnPoint_2;
     [SerializeField]
     Transform spawnPoint_3;
     [SerializeField]
-    Transform spawnPoint_4;
+    Transform spawnPoint_4;*/
+    [SerializeField]
+    List<Transform> SpawnPoints = new List<Transform>();
     [SerializeField]
     GameObject enemeyPrefab;
 
@@ -106,16 +108,16 @@ public class Enemey_spawner : MonoBehaviour {
         switch (spawnLocationInt)
         {
             case 1:
-                Instantiate(enemeyPrefab, new Vector3(spawnPoint_1.position.x, spawnPoint_1.position.y, 0), Quaternion.identity);
+                Instantiate(enemeyPrefab, new Vector3(SpawnPoints[0].position.x, SpawnPoints[0].position.y, 0), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(enemeyPrefab, new Vector3(spawnPoint_2.position.x, spawnPoint_2.position.y, 0), Quaternion.identity);
+                Instantiate(enemeyPrefab, new Vector3(SpawnPoints[1].position.x, SpawnPoints[1].position.y, 0), Quaternion.identity);
                 break;
             case 3:
-                Instantiate(enemeyPrefab, new Vector3(spawnPoint_3.position.x, spawnPoint_3.position.y, 0), Quaternion.identity);
+                Instantiate(enemeyPrefab, new Vector3(SpawnPoints[2].position.x, SpawnPoints[2].position.y, 0), Quaternion.identity);
                 break;
             case 4:
-                Instantiate(enemeyPrefab, new Vector3(spawnPoint_4.position.x, spawnPoint_4.position.y, 0), Quaternion.identity);
+                Instantiate(enemeyPrefab, new Vector3(SpawnPoints[3].position.x, SpawnPoints[3].position.y, 0), Quaternion.identity);
                 break;
 
         }

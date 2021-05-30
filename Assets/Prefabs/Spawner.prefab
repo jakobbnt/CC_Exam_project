@@ -77,10 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03dd946c9c252340b88e5f657424da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint_1: {fileID: 0}
-  spawnPoint_2: {fileID: 0}
-  spawnPoint_3: {fileID: 0}
-  spawnPoint_4: {fileID: 0}
+  SpawnPoints:
+  - {fileID: 1935114097491302954}
+  - {fileID: 4294840428735814478}
+  - {fileID: 6437620503643076466}
+  - {fileID: 4027024277664447895}
   enemeyPrefab: {fileID: 0}
 --- !u!1 &5343986738398949673
 GameObject:
