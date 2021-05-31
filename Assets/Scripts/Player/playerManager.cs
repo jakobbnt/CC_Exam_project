@@ -8,7 +8,7 @@ public class playerManager : MonoBehaviour {
     int playerHealth = 100;
     bool playerDeath;
     Transform playerTransform;
-    public Slider healthSlider;
+    public Slider healthBar;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +23,7 @@ public class playerManager : MonoBehaviour {
             playerHealth = 0;
         }
         //print(playerHealth);
+        healthBar.value = playerHealth;
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

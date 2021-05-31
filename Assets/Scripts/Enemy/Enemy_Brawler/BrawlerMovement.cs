@@ -31,12 +31,11 @@ public class BrawlerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        playerHit = true;
-        if (collision.gameObject.tag == "Player" && playerHit)
+        /*if (collision.gameObject.tag == "Player")
         {
-            enemyRigid.AddForce(-direction * pushBack,ForceMode2D.Impulse);
-            playerHit = false;
-        }
+            enemyRigid.AddForce(-direction * pushBack);
+            
+        }*/
     }
 
     //Metode som laver en vetor mellem Brawler objektet og spiller objektet
@@ -47,7 +46,7 @@ public class BrawlerMovement : MonoBehaviour
         print(direction);
         if (direction.magnitude > accuracy)
         {
-            enemyRigid.transform.Translate(direction * speed * Time.fixedDeltaTime);
+            enemyRigid.transform.Translate(direction/2 * speed * Time.fixedDeltaTime);
         }
 
     }
