@@ -9,6 +9,7 @@ TagManager:
   - Border
   - Enemy
   - Text
+  - ThemeSource
   layers:
   - Default
   - TransparentFX
