@@ -7,8 +7,12 @@ public class bullet_Spawner : MonoBehaviour {
 
     public GameObject bullet;
     public Transform bullet_Spawn;
+    AudioSource audioSource;
 
-
+    private void Start()
+    {
+        audioSource = this.GetComponent<AudioSource>();
+    }
 
 
     // Update is called once per frame
@@ -17,6 +21,7 @@ public class bullet_Spawner : MonoBehaviour {
         bool shoot = Input.GetButtonDown("Fire1");
         if (shoot){
             Instantiate(bullet, bullet_Spawn.position, bullet_Spawn.rotation);
+            audioSource.Play();
         } 
         
 	}
