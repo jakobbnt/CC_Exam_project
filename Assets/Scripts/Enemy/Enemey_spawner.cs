@@ -76,9 +76,10 @@ public class Enemey_spawner : MonoBehaviour {
                     spawnLocationInt = Random.Range(1, 4);
                     StartCoroutine(spawnPauser());
                     SpawnAt(spawnLocationInt);
-
+                    timer = 0;
                 }
                 break;
+
         }
         
     }

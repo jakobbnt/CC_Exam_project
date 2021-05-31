@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class playerManager : MonoBehaviour {
 
     int playerHealth = 100;
-    bool playerDeath;
+    public bool playerDeath;
     Transform playerTransform;
     public Slider healthBar;
 
@@ -25,15 +25,7 @@ public class playerManager : MonoBehaviour {
         //print(playerHealth);
         healthBar.value = playerHealth;
 	}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.gameObject.tag == "Enemy") playerHealth = playerHealth - 10;
-       //healthSlider.value = playerHealth;
-    }
-
- 
-
+    
     public void damageTaken(int damage)
     {
         playerHealth -= damage;
@@ -48,7 +40,9 @@ public class playerManager : MonoBehaviour {
         }
         if(playerDeath == true)
         {
-            this.GetComponent<MeshRenderer>().enabled = false;
+            Destroy(this.gameObject);
+            GameObject.FindGameObjectWithTag("GameOverText").GetComponent<GameEnder>().GameisOver();
+
         }
     }
 

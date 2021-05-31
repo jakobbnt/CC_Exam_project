@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Text
   - ThemeSource
+  - ScoreText
+  - GameOverText
   layers:
   - Default
   - TransparentFX

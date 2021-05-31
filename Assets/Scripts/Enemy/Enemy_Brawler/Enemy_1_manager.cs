@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy_1_manager : MonoBehaviour {
     //Fields til liv
@@ -42,6 +43,8 @@ public class Enemy_1_manager : MonoBehaviour {
     {
         if(enemeyHealth <= 0)
         {
+            var scoreManager = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
+            scoreManager.increaseScore(10);
             Destroy(gameObject);
         }
     }
