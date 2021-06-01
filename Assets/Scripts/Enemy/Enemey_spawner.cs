@@ -31,7 +31,7 @@ public class Enemey_spawner : MonoBehaviour {
     //Funktion til at vise spiilleren er klar 
     void gameStarter()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && playerReady == false)
+        if (Input.GetKeyDown(KeyCode.Space) && playerReady == false)
         {
             playerReady = true;
             timer = 0;

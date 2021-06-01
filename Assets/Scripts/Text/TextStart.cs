@@ -15,6 +15,6 @@ public class TextStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) ThisBody.bodyType = RigidbodyType2D.Dynamic;
+        if (Input.GetKeyDown(KeyCode.Space)) ThisBody.bodyType = RigidbodyType2D.Dynamic;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class playerManager : MonoBehaviour {
@@ -40,7 +41,7 @@ public class playerManager : MonoBehaviour {
         }
         if(playerDeath == true)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("GameOverText").GetComponent<GameEnder>().GameisOver();
 
         }

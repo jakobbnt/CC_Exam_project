@@ -34,7 +34,7 @@ public class Enemy_1_manager : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<playerManager>().damageTaken(5);
+            collision.gameObject.GetComponent<playerManager>().damageTaken(15);
         }
     }
 
