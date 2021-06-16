@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class Enemy_1_manager : MonoBehaviour {
     //Fields til liv
     int enemeyHealth = 30;
+    public bool isDead
+    {
+        get;set;
+    }
+    Animator animator;
 
     //Fields til movment
     //Transform EnemyTransform;
@@ -13,11 +18,15 @@ public class Enemy_1_manager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        animator = this.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        death();
+        if (!isDead)
+        {
+            death();
+        }
     }
   
     // holder styr på modstander liv
@@ -43,9 +52,11 @@ public class Enemy_1_manager : MonoBehaviour {
     {
         if(enemeyHealth <= 0)
         {
+            isDead = true;
             var scoreManager = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
             scoreManager.increaseScore(10);
-            Destroy(gameObject);
+            animator.SetBool("IsDead",true);
+            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + 1);
         }
     }
 }

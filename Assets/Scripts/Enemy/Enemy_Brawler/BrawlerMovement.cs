@@ -13,9 +13,11 @@ public class BrawlerMovement : MonoBehaviour
     bool playerHit;
     [SerializeField]
     float pushBack;
+    Enemy_1_manager Manager;
 
     void Start()
     {
+        Manager = this.GetComponent<Enemy_1_manager>();
         enemyRigid = this.GetComponent<Rigidbody2D>();
         goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().transform;
         bool playerHit = false;
@@ -24,9 +26,10 @@ public class BrawlerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        toPlayer(); 
-        
+        if (!Manager.isDead)
+        {
+            toPlayer();
+        }       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,7 +46,6 @@ public class BrawlerMovement : MonoBehaviour
     void toPlayer()
     {
         direction = goal.transform.position - this.transform.position;
-        print(direction);
         if (direction.magnitude > accuracy)
         {
             enemyRigid.transform.Translate(direction/2 * speed * Time.fixedDeltaTime);
