@@ -20,6 +20,6 @@ public class GameEnder : MonoBehaviour
     public void GameisOver()
     {
         score = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>().score;
-        gameOverText.text = "Game Over\nScore: " + score +"\nPress Enter to play again";
+        gameOverText.text = "Game Over\nScore: " + score +"\nPress Enter to play again\nPress Esc to exit game";
     }
 }
