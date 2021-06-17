@@ -11,6 +11,7 @@ public class Enemy_1_manager : MonoBehaviour {
         get;set;
     }
     Animator animator;
+    AudioSource audio;
 
     //Fields til movment
     //Transform EnemyTransform;
@@ -18,6 +19,7 @@ public class Enemy_1_manager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        audio = this.GetComponent<AudioSource>();
         animator = this.GetComponent<Animator>();
     }
 	
@@ -56,6 +58,7 @@ public class Enemy_1_manager : MonoBehaviour {
             var scoreManager = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
             scoreManager.increaseScore(10);
             animator.SetBool("IsDead",true);
+            audio.Play();
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + 1);
         }
     }
