@@ -20,7 +20,7 @@ public class BrawlerMovement : MonoBehaviour
         Manager = this.GetComponent<Enemy_1_manager>();
         enemyRigid = this.GetComponent<Rigidbody2D>();
         goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().transform;
-        bool playerHit = false;
+        //bool playerHit = false;
     }
 
     // Update is called once per frame

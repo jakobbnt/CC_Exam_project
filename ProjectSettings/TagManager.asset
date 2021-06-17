@@ -12,6 +12,7 @@ TagManager:
   - ThemeSource
   - ScoreText
   - GameOverText
+  - Center
   layers:
   - Default
   - TransparentFX
