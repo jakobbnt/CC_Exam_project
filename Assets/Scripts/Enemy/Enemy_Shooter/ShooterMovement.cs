@@ -4,33 +4,42 @@ using UnityEngine;
 
 public class ShooterMovement : MonoBehaviour
 {
+    Transform center;
+    float rotationSpeed = 20f;
+    float speed = 0.25f;
+    float radius = 8.5f;
+    Vector3 direction;
 
-    Vector2 direction;
-    Transform goal;
-    float accuracy = 5f;
-    [SerializeField]
-    float speed = 1f;
-    Rigidbody2D myRigidbody;
     // Start is called before the first frame update
     void Start()
     {
-        myRigidbody = this.GetComponent<Rigidbody2D>();
-        goal = GameObject.FindGameObjectWithTag("Center").GetComponent<Transform>();
-        
+        center = GameObject.FindGameObjectWithTag("Center").GetComponent<Transform>();
+        this.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,90);
     }
 
     // Update is called once per frame
     void Update()
     {
-        toPlayer();
+        toCenter();
     }
 
-    void toPlayer()
+    void toCenter()
     {
-        this.transform.up = new Vector2(goal.position.x - this.transform.position.x,goal.position.y - this.transform.position.y);
-        //myRigidbody.AddForce(this.transform.right * 0.001f);
-        this.transform.Translate(transform.right * 0.25f);
-        Debug.DrawLine(transform.position, transform.up);
+        direction = center.position - this.transform.position;
+        if (direction.magnitude > radius)
+        {
+            this.transform.Translate(direction * speed * Time.deltaTime);
 
+        }
+        else
+        {
+            rotateAroundCenter();
+        }
     }
+    void rotateAroundCenter()
+    {
+        this.transform.RotateAround(center.position, new Vector3(0, 0, this.transform.position.z), rotationSpeed * Time.deltaTime);
+    }
+
+    
 }
