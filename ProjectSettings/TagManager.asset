@@ -13,6 +13,9 @@ TagManager:
   - ScoreText
   - GameOverText
   - Center
+  - Shooter
+  - EnemyBullet
+  - EnemeyBullet
   layers:
   - Default
   - TransparentFX

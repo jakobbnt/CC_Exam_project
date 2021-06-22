@@ -7,8 +7,8 @@ public class ShooterMovement : MonoBehaviour
     Transform center;
     float rotationSpeed = 20f;
     float speed = 0.25f;
-    float radius = 8.5f;
-    Vector3 direction;
+    public float radius { get;} = 8.5f;
+    public Vector3 direction { get; set; }
 
     // Start is called before the first frame update
     void Start()
