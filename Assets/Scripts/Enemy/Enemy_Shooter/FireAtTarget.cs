@@ -21,7 +21,7 @@ public class FireAtTarget : MonoBehaviour
         radius = shooterMovement.radius;
         timer = 0;
         this.audioSource = this.GetComponent<AudioSource>();
-        shooterManager = this.GetComponent<ShooterManager>();
+        shooterManager = this.transform.parent.gameObject.transform.parent.gameObject.GetComponent<ShooterManager>();
 
     }
 
@@ -35,7 +35,7 @@ public class FireAtTarget : MonoBehaviour
 
     public void shootAtTarget(float radius, EnemyBullet bullet, Vector3 target, Rigidbody2D bulletRigid, float distance)
     {
-        if (distance < radius)
+        if (distance < radius + 2f)
         {
             timer += Time.deltaTime;
             if (timer > 2f)

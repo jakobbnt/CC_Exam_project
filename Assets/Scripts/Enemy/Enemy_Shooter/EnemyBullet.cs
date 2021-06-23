@@ -26,6 +26,7 @@ public class EnemyBullet : MonoBehaviour
             collision.gameObject.GetComponent<playerManager>().damageTaken(20);
             Destroy(this.gameObject);
         }
+        else if (collision.gameObject.tag == "Border") Destroy(this.gameObject);
     }
     public void addForce(Vector3 target, float force)
     {

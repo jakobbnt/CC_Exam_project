@@ -23,9 +23,10 @@ public class ShooterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(health);
+        
         if(!isDead){
             death();
+            
 
         }
         
@@ -47,7 +48,6 @@ public class ShooterManager : MonoBehaviour
             var scoreManager = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
             scoreManager.increaseScore(20);
             animator.SetBool("IsDead", true);
-            GameObject.FindGameObjectWithTag("ShooterTurret").GetComponent<SpriteRenderer>().enabled = false;
             audio.Play();
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + 1);
         }

@@ -54,6 +54,7 @@ public class Enemy_1_manager : MonoBehaviour {
     {
         if(enemeyHealth <= 0)
         {
+            this.GetComponent<BoxCollider2D>().enabled = false;
             isDead = true;
             var scoreManager = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<ScoreManager>();
             scoreManager.increaseScore(10);
