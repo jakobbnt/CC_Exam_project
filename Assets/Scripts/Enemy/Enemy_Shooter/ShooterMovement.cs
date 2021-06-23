@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShooterMovement : MonoBehaviour
 {
+    ShooterManager shooterManager;
     Transform center;
     float rotationSpeed = 20f;
     float speed = 0.25f;
@@ -15,12 +16,16 @@ public class ShooterMovement : MonoBehaviour
     {
         center = GameObject.FindGameObjectWithTag("Center").GetComponent<Transform>();
         this.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,90);
+        shooterManager = this.GetComponent<ShooterManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        toCenter();
+        if (!shooterManager.isDead)
+        {
+            toCenter();
+        }
     }
 
     void toCenter()

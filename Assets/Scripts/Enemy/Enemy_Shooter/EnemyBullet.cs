@@ -16,8 +16,17 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<playerManager>().damageTaken(20);
+            Destroy(this.gameObject);
+        }
+    }
     public void addForce(Vector3 target, float force)
     {
         myRigid.AddForce(target*force);

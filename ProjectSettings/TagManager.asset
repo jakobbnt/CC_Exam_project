@@ -16,6 +16,7 @@ TagManager:
   - Shooter
   - EnemyBullet
   - EnemeyBullet
+  - ShooterTurret
   layers:
   - Default
   - TransparentFX

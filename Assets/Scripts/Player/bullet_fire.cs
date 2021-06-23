@@ -14,7 +14,7 @@ public class bullet_fire : MonoBehaviour {
             GetComponent<Rigidbody2D>().AddForce(this.transform.up * bullet_force);         
         }
         // får skudet til at forsvinde efter det rammer "Border"
-        if (target.gameObject.tag == "Border" || target.gameObject.tag == "Enemy") Destroy(gameObject);
+        if (target.gameObject.tag == "Border" || target.gameObject.tag == "Enemy" || target.gameObject.tag == "Shooter") Destroy(gameObject);
         
     }
 
